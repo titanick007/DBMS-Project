@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<% include ../partials/head %>
+</head>
+<body>
+
+	<header>
+		<% include ../partials/adminHeader%>
+	</header>
+	<div class="panel panel-primary">
+		<a href="/logout">
+			<button class="btn-success btn pull-right">
+				Logout
+			</button>
+		</a>
+	</div>
+	<!-- if you want to create login page and register page together in one page ...you have to only chnage his name...that's it...                 -->
+	<div class="container font" style="margin-top: 1%;">
+	  <div class="row">
+			<div class="col-md-5 cal-md-offset-2">
+			<h1 class="text-center text-success font"><strong>Product Register page</strong></h1>
+			  <div class="tab-content">
+			    <div id="home" class="tab-pane fade in active">
+
+			    	<% if(typeof errors !== 'undefined'){ %>
+			    		<div class="alert alert-danger">
+			    		<% for(var i = 0; i < errors.length; i++){ %>
+			    			<p>*<%= errors[i].message %></p>
+			    		<% } %>
+			    		</div>
+			    	<% } %>
+					<form method="POST" action="/admindashboard/addproduct">
+						<div class="form-group font">
+							<label for="productname" class="font">Product Name:</label>
+							<input type="text" class="form-control font" id="productname" name="productname">
+						</div>
+						
+						<div class="form-group font">
+							<label for="price" class="font">Price:</label>
+							<input type="text" class="form-control font" id="price" name="price">
+						</div>
+						
+						<div class="form-group">
+							<label for="quantity" class="font">Quantity:</label>
+							<input type="text" class="form-control font" id="quantity" name="quantity">
+						</div>
+						
+						<div class="form-group">
+							<label for="category" class="font">Category:</label>
+							<input type="text" class="form-control font" id="category" name="catagory">
+						</div>
+					
+						<div class="form-group">
+							<label for="image" class="font">Image 1:</label>
+							<input type="text" class="form-control font" id="image" name="image1">
+						</div>
+						<div class="form-group">
+							<label for="details" class="font">details:</label>
+							<input type="text" class="form-control font" id="details" name="details">
+						</div>
+					
+						<button type="submit" class="btn btn-primary btn-lg font" id="submit">Add</button>
+					</form>
+			    </div>
+			    </div>
+			   </div>
+	  		</div>
+		</div>
+	<hr>
+	<footer class="bg-dark text-white">
+	<% include ../partials/footer %>
+	</footer>
+</body>
+</html>
